@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="top">CHELSEA — idées, culture, ambition & conversations</div>
-<nav class="nav"><a class="brand" href="#home"><span class="mark">♠</span>CHELSEA W.</a><div class="links"><a href="#articles">Articles</a><a href="#podcast">Podcast</a><a href="#videos">Vidéos</a><a href="#books">Livres</a><a href="#community">Communauté</a></div><button class="menu" onclick="toast('Menu mobile : ajoute tes liens préférés ici.')">☰</button></nav>
+<nav class="nav"><a class="brand" href="#home"><span class="mark">♠</span>CHELSEA W.</a><div class="links"><a href="#articles">Articles</a><a href="#podcast">Podcast</a><a href="#videos">Vidéos</a><a href="#books">Livres</a><a href="#community">Communauté</a></div><div id="authArea"><button class="auth-btn" onclick="openAuth()">Rejoindre</button></div><button class="menu" onclick="toast('Menu mobile : ajoute tes liens préférés ici.')">☰</button></nav>
 <main id="home">
 <section class="hero"><div><div class="eyebrow">Bienvenue dans mon univers</div><h1>Pense.<br><span>Crée.</span><br>Évolue.</h1><p>Un espace pour mes réflexions, mes découvertes, mes livres, mes podcasts et les conversations qui méritent d'aller plus loin.</p><div class="actions"><a class="btn primary" href="#articles">Explorer le journal</a><a class="btn dark" href="#community">Rejoindre la communauté</a></div></div><div class="panther-card"><div class="panther">🐆</div></div></section>
 <section class="section" id="articles"><div class="section-head"><div><div class="eyebrow">Le journal</div><h2>Articles & réflexions</h2></div><p class="sub">Des textes personnels, société, carrière, relations, ambition, culture et développement personnel — sans prétendre avoir toutes les réponses.</p></div><div class="grid">
@@ -23,18 +23,133 @@
 <section class="section" id="podcast"><div class="section-head"><div><div class="eyebrow">Audio</div><h2>Podcast</h2></div><p class="sub">Des conversations longues sur les sujets qu'on n'a pas toujours le temps d'aborder.</p></div><div class="card"><div class="cover pink">CHELSEA AFTER DARK — Épisode 01</div><div class="card-body"><span class="tag">Nouveau</span><h3>Ambition, doute et peur de rater sa vie</h3><p>Une conversation honnête sur le fait de vouloir beaucoup, tout en ayant parfois peur de ne pas être à la hauteur.</p><button class="btn primary" onclick="toast('Lecteur audio à connecter à ton hébergeur de podcast.')">▶ Écouter l'épisode</button></div></div></section>
 <section class="section" id="videos"><div class="section-head"><div><div class="eyebrow">Vidéo</div><h2>À regarder</h2></div><p class="sub">Vlogs, réflexions face caméra, coulisses de projets et recommandations.</p></div><div class="grid"><article class="card"><div class="cover">VIDEO 01</div><div class="card-body"><span class="tag">YouTube</span><h3>Construire sa vie quand on part de zéro</h3><p>Un épisode manifeste sur les objectifs, la discipline et les petites victoires.</p><div class="meta"><span>14:32</span><span>♡ 201</span></div></div></article><article class="card"><div class="cover gold">VIDEO 02</div><div class="card-body"><span class="tag">Vlog</span><h3>Une semaine dans ma vraie vie</h3><p>Études, travail, projets et moments où rien ne se passe comme prévu.</p><div class="meta"><span>18:10</span><span>♡ 87</span></div></div></article><article class="card"><div class="cover pink">VIDEO 03</div><div class="card-body"><span class="tag">Culture</span><h3>Mes recommandations du mois</h3><p>Livres, films, podcasts, créateurs et découvertes.</p><div class="meta"><span>11:05</span><span>♡ 143</span></div></div></article></div></section>
 <section class="section books" id="books"><div class="section-head"><div><div class="eyebrow">Bibliothèque</div><h2>Livres recommandés</h2></div><p class="sub">Une bibliothèque vivante : ce que j'ai lu, ce que j'ai aimé, et ce qui mérite vraiment une place dans ta pile à lire.</p></div><div class="book-row"><div class="book"><div class="book-cover">Psychologie & société</div><strong>À ajouter</strong><small>Note personnelle · 4,8/5</small></div><div class="book"><div class="book-cover">Business & ambition</div><strong>À ajouter</strong><small>Note personnelle · 4,6/5</small></div><div class="book"><div class="book-cover">Roman</div><strong>À ajouter</strong><small>Note personnelle · 4,9/5</small></div><div class="book"><div class="book-cover">Spiritualité</div><strong>À ajouter</strong><small>Note personnelle · 5/5</small></div></div></section>
-<section class="community" id="community"><div class="community-inner"><div><div class="eyebrow">La communauté</div><h2>On ne fait pas tout seul.</h2><p>Crée ton profil, partage tes réflexions, commente les publications, sauvegarde tes articles préférés et reçois les nouveaux épisodes directement par email.</p><form class="newsletter" onsubmit="subscribe(event)"><input id="email" type="email" placeholder="ton@email.com" required><button class="btn primary">Je m'inscris</button></form></div><div class="feed"><div class="post"><div class="post-top"><div class="post-user"><div class="avatar">M</div><div><strong>Maya</strong><br><small>Il y a 12 min</small></div></div><span>•••</span></div><p>« Le truc que je retiens de l'article : arrêter de confondre lenteur et échec. »</p><div class="post-actions"><button class="pill" onclick="like(this)">♡ J'aime <b>24</b></button><button class="pill" onclick="openComment()">💬 Commenter</button><button class="pill" onclick="save(this)">☆ Enregistrer</button></div></div><div class="post"><div class="post-top"><div class="post-user"><div class="avatar">A</div><div><strong>Amine</strong><br><small>Hier</small></div></div></div><p>Quel livre vous a réellement fait changer de perspective ?</p><div class="post-actions"><button class="pill" onclick="like(this)">♡ J'aime <b>41</b></button><button class="pill" onclick="openComment()">💬 Répondre</button><button class="pill" onclick="save(this)">☆ Enregistrer</button></div></div></div></div></section>
+<section class="community" id="community"><div class="community-inner"><div><div class="eyebrow">La communauté</div><h2>On ne fait pas tout seul.</h2><p>Crée ton profil, partage tes réflexions, commente les publications, sauvegarde tes articles préférés et reçois les nouveaux épisodes directement par email.</p><form class="newsletter" onsubmit="subscribe(event)"><input id="email" type="email" placeholder="ton@email.com" required><button class="btn primary">Je m'inscris</button></form></div><div class="feed"><div class="post"><div class="post-top"><div class="post-user"><div class="avatar">M</div><div><strong>Maya</strong><br><small>Il y a 12 min</small></div></div><span>•••</span></div><p>« Le truc que je retiens de l'article : arrêter de confondre lenteur et échec. »</p><div class="post-actions"><button class="pill" onclick="likePost(1,this)">♡ J’aime</button><button class="pill" onclick="addComment(1)">💬 Commenter</button><button class="pill" onclick="savePost(1,this)">☆ Enregistrer</button></div></div><div class="post"><div class="post-top"><div class="post-user"><div class="avatar">A</div><div><strong>Amine</strong><br><small>Hier</small></div></div></div><p>Quel livre vous a réellement fait changer de perspective ?</p><div class="post-actions"><button class="pill" onclick="likePost(1,this)">♡ J’aime</button><button class="pill" onclick="addComment(1)">💬 Répondre</button><button class="pill" onclick="savePost(1,this)">☆ Enregistrer</button></div></div></div></div></section>
 </main>
 <footer class="footer"><span>© 2026 Chelsea W.</span><span>Journal · Podcast · Vidéo · Livres · Communauté</span><span>Fait avec intention.</span></footer>
+
+<div class="modal auth-modal" id="authModal">
+  <div class="modal-box">
+    <div class="modal-head"><h3>Rejoindre Chelsea</h3><button class="close" onclick="closeAuth()">×</button></div>
+    <p class="auth-note">Crée ton espace pour liker, commenter et enregistrer tes contenus préférés.</p>
+    <input id="authName" placeholder="Prénom / pseudo">
+    <input id="authEmail" type="email" placeholder="Ton email">
+    <input id="authPassword" type="password" placeholder="Mot de passe (6 caractères minimum)">
+    <button class="btn primary" onclick="authSubmit()">Créer mon compte</button>
+    <p class="auth-note">Une confirmation par email peut être demandée par Supabase.</p>
+  </div>
+</div>
 <div class="modal" id="modal"><div class="modal-box"><div class="modal-head"><h3>Ajouter un commentaire</h3><button class="close" onclick="closeComment()">×</button></div><textarea id="comment" placeholder="Écris quelque chose..."></textarea><button class="btn primary" onclick="postComment()">Publier</button></div></div><div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+.auth-btn{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:11px 16px;font-weight:800;font-size:12px}
+.user-chip{display:flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:11px}
+.auth-modal input{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px;margin:7px 0}
+.auth-note{font-size:12px;color:var(--muted);line-height:1.5}
+.community-live{margin-top:20px;padding:18px;border:1px solid #54313f;border-radius:20px;background:#181016}
+.live-list{display:grid;gap:12px;margin-top:12px}
+.live-comment{padding:12px 14px;border-radius:14px;background:#251821}
+</style>
 <script>
+const SUPABASE_URL = "https://bplspbmzzehtdmhehjkt.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_SvCH0QC8erupiu5erZ1a4g_ucAU1X7P";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+async function refreshAuthUI(){
+  const {data:{user}} = await supabaseClient.auth.getUser();
+  const area = document.getElementById('authArea');
+  if(!area) return;
+  if(user){
+    const label = (user.user_metadata && user.user_metadata.display_name) || user.email.split('@')[0];
+    area.innerHTML = `<div class="user-chip"><span class="avatar" style="width:32px;height:32px;font-size:12px">${label.charAt(0).toUpperCase()}</span><button onclick="signOutUser()">Déconnexion</button></div>`;
+  } else {
+    area.innerHTML = `<button class="auth-btn" onclick="openAuth()">Rejoindre</button>`;
+  }
+}
+
+async function signOutUser(){
+  await supabaseClient.auth.signOut();
+  refreshAuthUI();
+  toast('Déconnexion effectuée.');
+}
+
+function openAuth(){document.getElementById('authModal').classList.add('open')}
+function closeAuth(){document.getElementById('authModal').classList.remove('open')}
+
+async function authSubmit(){
+  const email=document.getElementById('authEmail').value.trim();
+  const password=document.getElementById('authPassword').value;
+  const name=document.getElementById('authName').value.trim();
+  if(!email || !password) return toast('Email et mot de passe requis.');
+  const {data,error} = await supabaseClient.auth.signUp({
+    email,password,
+    options:{data:{display_name:name || email.split('@')[0]}}
+  });
+  if(error) return toast(error.message);
+  closeAuth();
+  toast(data.session ? 'Compte créé.' : 'Compte créé. Vérifie ton email pour confirmer ton inscription.');
+  refreshAuthUI();
+}
+
+async function subscribe(e){
+  e.preventDefault();
+  const email=document.getElementById('email').value.trim();
+  const {error}=await supabaseClient.from('newsletter_subscribers').insert({email});
+  if(error && !error.message.toLowerCase().includes('duplicate')) return toast('Impossible de vous inscrire pour le moment.');
+  document.getElementById('email').value='';
+  toast('Tu es inscrite à la newsletter.');
+}
+
+async function requireUser(){
+  const {data:{user}}=await supabaseClient.auth.getUser();
+  if(!user){openAuth();toast('Crée ton compte pour utiliser cette fonction.');return null}
+  return user;
+}
+
+async function likePost(postId, btn){
+  const user=await requireUser(); if(!user) return;
+  const {data:existing}=await supabaseClient.from('likes').select('post_id').eq('post_id',postId).eq('user_id',user.id).maybeSingle();
+  if(existing){
+    await supabaseClient.from('likes').delete().eq('post_id',postId).eq('user_id',user.id);
+    btn.textContent='♡ J’aime';
+  } else {
+    const {error}=await supabaseClient.from('likes').insert({post_id:postId,user_id:user.id});
+    if(error) return toast('Impossible d’ajouter le like.');
+    btn.textContent='♥ J’aime';
+  }
+}
+
+async function savePost(postId, btn){
+  const user=await requireUser(); if(!user) return;
+  const {data:existing}=await supabaseClient.from('bookmarks').select('post_id').eq('post_id',postId).eq('user_id',user.id).maybeSingle();
+  if(existing){
+    await supabaseClient.from('bookmarks').delete().eq('post_id',postId).eq('user_id',user.id);
+    btn.textContent='☆ Enregistrer';
+  } else {
+    const {error}=await supabaseClient.from('bookmarks').insert({post_id:postId,user_id:user.id});
+    if(error) return toast('Impossible d’enregistrer.');
+    btn.textContent='★ Enregistré';
+  }
+}
+
+async function addComment(postId){
+  const user=await requireUser(); if(!user) return;
+  const body=prompt('Ton commentaire :');
+  if(!body || !body.trim()) return;
+  const {error}=await supabaseClient.from('comments').insert({post_id:postId,user_id:user.id,body:body.trim()});
+  if(error) return toast('Impossible de publier le commentaire.');
+  toast('Commentaire publié.');
+}
+
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
 function like(btn){let b=btn.querySelector('b');b.textContent=+b.textContent+1;btn.firstChild.textContent='♥ J\'aime ';toast('J’aime ajouté.')}
 function save(btn){btn.textContent='★ Enregistré';toast('Publication enregistrée dans tes favoris.')}
 function openComment(){document.getElementById('modal').classList.add('open');document.getElementById('comment').focus()}
 function closeComment(){document.getElementById('modal').classList.remove('open')}
 function postComment(){const v=document.getElementById('comment').value.trim();if(!v)return toast('Écris un commentaire avant de publier.');closeComment();document.getElementById('comment').value='';toast('Commentaire publié dans la démo.')}
-function subscribe(e){e.preventDefault();const email=document.getElementById('email').value;localStorage.setItem('newsletter_email',email);toast('Inscription enregistrée dans la démo.')}
+
+supabaseClient.auth.onAuthStateChange(() => refreshAuthUI());
+refreshAuthUI();
 </script>
 </body>
 </html>
